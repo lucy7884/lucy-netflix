@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucy Netflix</title>
+  <link rel="preconnect" href="https://api.themoviedb.org" />
+  <link rel="preconnect" href="https://image.tmdb.org" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Lucy Netflix home">LUCYFLIX</a>
+    <nav class="nav-links" aria-label="주요 메뉴">
+      <a href="#now-playing">현재 상영작</a>
+      <a href="#popular">인기순</a>
+      <a href="#rated">평점순</a>
+    </nav>
+    <form class="search-form" id="searchForm" role="search">
+      <label class="sr-only" for="movieSearch">영화 검색</label>
+      <input id="movieSearch" type="search" placeholder="영화 제목 검색" autocomplete="off" />
+      <button type="submit">검색</button>
+    </form>
+  </header>
+
+  <main>
+    <section class="hero" id="hero" aria-live="polite">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Now Playing</p>
+        <h1 id="heroTitle">현재 상영 중인 영화</h1>
+        <p id="heroOverview">극장에서 만날 수 있는 최신 영화를 불러오는 중입니다.</p>
+        <div class="hero-meta" id="heroMeta"></div>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="영화 정렬 및 필터">
+      <div>
+        <p class="section-kicker">The Movie Database</p>
+        <h2 id="listTitle">현재 상영작</h2>
+      </div>
+      <div class="controls">
+        <select id="sortSelect" aria-label="정렬">
+          <option value="default">기본순</option>
+          <option value="rating">평점순</option>
+          <option value="date">개봉일순</option>
+          <option value="title">제목순</option>
+        </select>
+        <select id="regionSelect" aria-label="지역">
+          <option value="KR">한국</option>
+          <option value="US">미국</option>
+          <option value="JP">일본</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="movie-section" id="now-playing">
+      <div class="status" id="status">영화 정보를 불러오고 있습니다.</div>
+      <div class="movie-grid" id="movieGrid" aria-live="polite"></div>
+      <button class="load-more" id="loadMore" type="button">더 보기</button>
+    </section>
+  </main>
+
+  <template id="movieCardTemplate">
+    <article class="movie-card">
+      <div class="poster-wrap">
+        <img class="poster" alt="" loading="lazy" />
+        <span class="rating"></span>
+      </div>
+      <div class="movie-info">
+        <h3></h3>
+        <p class="release"></p>
+        <p class="overview"></p>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
