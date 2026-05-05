@@ -1,4 +1,7 @@
-const API_URL = "/api/now-playing";
+const API_URL =
+  window.location.protocol === "file:"
+    ? "https://lucy-netflix.vercel.app/api/now-playing"
+    : "/api/now-playing";
 const IMAGE_BASE = "https://image.tmdb.org/t/p/";
 
 const state = {
