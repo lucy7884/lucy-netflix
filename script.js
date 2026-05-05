@@ -1,5 +1,4 @@
-const API_KEY = "07ef92ab40015f2c76763fd9db0b0b11";
-const API_URL = "https://api.themoviedb.org/3/movie/now_playing";
+const API_URL = "/api/now-playing";
 const IMAGE_BASE = "https://image.tmdb.org/t/p/";
 
 const state = {
@@ -46,7 +45,6 @@ async function fetchNowPlaying({ page = 1, reset = false } = {}) {
   toggleSkeleton(reset);
 
   const params = new URLSearchParams({
-    api_key: API_KEY,
     language: "ko-KR",
     region: state.region,
     page,
